@@ -3,10 +3,9 @@
     <string name="action_settings">Settings</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_main">Mi Primer Proyecto</string>
-    <string name="fragment_title_1">Fragment 1</string>
-    <string name="fragment_title_2">Fragment 2</string>
-    <string name="fragment_title_3">Fragment 3</string>
-    <string name="fragment_title_4">Fragment 4</string>
+    <string name="fragment_title_1">Inicio</string>
+    <string name="fragment_title_2">Lista de Usuarios</string>
+    <string name="fragment_title_4">Nuevo Usuario</string>
     <string name="name">Nombre: </string>
     <string name="age">Edad: </string>
     <string name="hometown">Ciudad: </string>

@@ -4,18 +4,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.agvenegas.prueba4.Fragment2">
+    tools:context="com.example.agvenegas.prueba4.Fragment1">
 
     <FrameLayout
-        android:id="@+id/second_fragment"
+        android:id="@+id/frame_1_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent" >
 
-        <ListView
+        <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/listView_secondFragment"
-            android:layout_gravity="left|top" />
+            android:text="@string/fragment_title_2"
+            android:id="@+id/button_to_fragment"
+            android:layout_gravity="center" />
 
     </FrameLayout>
 

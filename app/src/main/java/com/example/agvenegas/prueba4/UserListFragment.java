@@ -1,6 +1,5 @@
 package com.example.agvenegas.prueba4;
 
-import android.content.pm.PackageInstaller;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -10,25 +9,22 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
+
 import com.example.agvenegas.prueba4.adapters.MyCustomArrayAdapter;
 import com.example.agvenegas.prueba4.entities.TestList;
 import com.example.agvenegas.prueba4.utils.SessionInfo;
 
-import org.json.JSONArray;
-
 import java.util.ArrayList;
-import java.util.List;
 
-public class Fragment2 extends Fragment {
+public class UserListFragment extends Fragment {
 
     public ListView lista;
     protected SessionInfo session = null;
 
-    public Fragment2() {
+    public TestList test_list = null;
+
+    public UserListFragment() {
         // Required empty public constructor
     }
 
@@ -37,37 +33,30 @@ public class Fragment2 extends Fragment {
         super.onCreate(savedInstanceState);
         // Indicates fragment has menu
         this.setHasOptionsMenu(true);
-        this.session = SessionInfo.getInstance();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.second_fragment, container, false);
+        View view = inflater.inflate(R.layout.user_list_layout, container, false);
+        session = SessionInfo.getInstance();
 
         lista = (ListView) view.findViewById(R.id.listView_secondFragment);
 
-        return view;
-    }
-
-    @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-
         // Construct the data source
         ArrayList<TestList> arrayOfUsers = session.getTestList();
+        // Add item to adapter
+//        TestList newUser = new TestList(1, "Luis", "20", "Costa Rica");
+//        session.getTestList().add(newUser);
+//        TestList newUser2 = new TestList(2, "Ana", "30", "España");
+//        session.getTestList().add(newUser2);
+//        TestList newUser3 = new TestList(2, "María", "40", "Guatemala");
+//        session.getTestList().add(newUser3);
+
         // Create the adapter to convert the array to views
         MyCustomArrayAdapter adapter = new MyCustomArrayAdapter(getActivity(), arrayOfUsers);
         // Attach the adapter to a ListView
 //        lista.setAdapter(adapter);
-
-//        // Add item to adapter
-//        arrayOfUsers newUser = new arrayOfUsers(R.drawable.ic_launcher, "Luis", "20", "Costa Rica");
-//        TestList newUser2 = new TestList(R.drawable.firefox_noshadow, "Ana", "30", "España");
-//        TestList newUser3 = new TestList(R.drawable.firefox_noshadow, "María", "40", "Guatemala");
-//        adapter.add(newUser);
-//        adapter.add(newUser2);
-//        adapter.add(newUser3);
 
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -78,19 +67,40 @@ public class Fragment2 extends Fragment {
 //                if (itemPosition == 0){
 //                    ((MainActivity)getActivity()).startNewFragment(new Fragment1());
 //                } else if (itemPosition == 1) {
-//                    ((MainActivity)getActivity()).startNewFragment(new Fragment3());
+//                    ((MainActivity)getActivity()).startNewFragment(new NewUserFragment());
 //                } else {
 //                    Toast.makeText(getActivity(), "no posee detalle", Toast.LENGTH_LONG).show();
 //                }
             }
         });
+
+        return view;
+    }
+
+    private int setIcon() {
+        int detail_icon = 1;
+        switch (test_list.getImageID()) {
+            case TestList.android_icon:
+                detail_icon = R.drawable.ic_launcher;
+                break;
+
+            case TestList.firefox_icon:
+                detail_icon = R.drawable.firefox_noshadow;
+                break;
+
+            default:
+                detail_icon = R.drawable.ic_launcher;
+                break;
+        }
+
+        return detail_icon;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
         if (item.getItemId() == R.id.menu_opt_location) {
-            ((MainActivity)getActivity()).startNewFragment(new Fragment4());
+            ((MainActivity)getActivity()).startNewFragment(new NewUserFragment());
         }
         return super.onOptionsItemSelected(item);
     }

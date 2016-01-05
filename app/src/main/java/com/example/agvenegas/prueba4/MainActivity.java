@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         // Initialize fragment transaction
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         // Replace with fragment content
-        ft.replace(R.id.main_fragment, fragment);
+        ft.replace(R.id.main_frame, fragment);
         // Animation on change
         ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
         // Clear stack (back button memory)

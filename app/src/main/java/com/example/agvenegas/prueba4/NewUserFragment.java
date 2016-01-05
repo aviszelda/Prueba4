@@ -1,8 +1,5 @@
 package com.example.agvenegas.prueba4;
 
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -11,15 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.TextView;
 
-import com.example.agvenegas.prueba4.adapters.MyCustomArrayAdapter;
-import com.example.agvenegas.prueba4.entities.TestList;
-
-import java.util.ArrayList;
-
-public class Fragment4 extends Fragment {
+public class NewUserFragment extends Fragment {
 
     public TextView text_name;
     public TextView text_age;
@@ -43,7 +34,7 @@ public class Fragment4 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.four_fragment, container, false);
+        View view = inflater.inflate(R.layout.new_user_layout, container, false);
 
         text_name = (TextView) view.findViewById(R.id.text_name);
         text_age = (TextView) view.findViewById(R.id.text_age);
@@ -55,24 +46,19 @@ public class Fragment4 extends Fragment {
 
         fill_button = (Button) view.findViewById(R.id.fill_button);
 
-        return view;
-    }
-
-    @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-
         fill_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 name = edit_text_name.getText().toString();
                 age = edit_text_age.getText().toString();
                 hometown = edit_text_hometown.getText().toString();
-                Log.i("campos ","prueba "+ name + " " + age + " " + hometown);
+                Log.i("campos ", "prueba " + name + " " + age + " " + hometown);
 
-                ((MainActivity)getActivity()).startNewFragment(new Fragment2());
+                ((MainActivity) getActivity()).startNewFragment(new UserListFragment());
             }
         });
+
+        return view;
     }
 
     public void onResume() {
