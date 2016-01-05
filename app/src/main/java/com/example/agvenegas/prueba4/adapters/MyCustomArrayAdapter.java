@@ -38,7 +38,7 @@ public class MyCustomArrayAdapter extends ArrayAdapter<TestList>{
             TextView tvHome = (TextView) convertView.findViewById(R.id.tvHome);
             // Populate the data into the template view using the data object
             if (iconID != null) {
-                iconID.setImageResource(testList.getImageID());
+                iconID.setImageResource(setIcon(testList.getImageID()));
             }
             if (tvName != null) {
                 tvName.setText("Nombre: "+testList.getName());
@@ -52,5 +52,23 @@ public class MyCustomArrayAdapter extends ArrayAdapter<TestList>{
         }
         // Return the completed view to render on screen
         return convertView;
+    }
+
+    private int setIcon(int detail_icon) {
+
+        switch (detail_icon) {
+            case 1:
+                detail_icon = R.drawable.ic_launcher;
+                break;
+
+            case 2:
+                detail_icon = R.drawable.firefox_noshadow;
+                break;
+
+            default:
+                detail_icon = R.drawable.ic_launcher;
+                break;
+        }
+        return detail_icon;
     }
 }

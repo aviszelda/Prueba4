@@ -12,6 +12,8 @@ public class SessionInfo {
 
     private SessionInfo() {
         super();
+        test_list = new ArrayList<TestList>();
+        this.setTestList(null);
     }
 
     public static SessionInfo instance = null;

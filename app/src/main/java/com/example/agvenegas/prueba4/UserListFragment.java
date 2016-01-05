@@ -46,17 +46,17 @@ public class UserListFragment extends Fragment {
         // Construct the data source
         ArrayList<TestList> arrayOfUsers = session.getTestList();
         // Add item to adapter
-//        TestList newUser = new TestList(1, "Luis", "20", "Costa Rica");
-//        session.getTestList().add(newUser);
-//        TestList newUser2 = new TestList(2, "Ana", "30", "España");
-//        session.getTestList().add(newUser2);
-//        TestList newUser3 = new TestList(2, "María", "40", "Guatemala");
-//        session.getTestList().add(newUser3);
+        TestList newUser = new TestList(1, "Luis", "20", "Costa Rica");
+        session.getTestList().add(newUser);
+        TestList newUser2 = new TestList(2, "Ana", "30", "España");
+        session.getTestList().add(newUser2);
+        TestList newUser3 = new TestList(2, "María", "40", "Guatemala");
+        session.getTestList().add(newUser3);
 
         // Create the adapter to convert the array to views
         MyCustomArrayAdapter adapter = new MyCustomArrayAdapter(getActivity(), arrayOfUsers);
         // Attach the adapter to a ListView
-//        lista.setAdapter(adapter);
+        lista.setAdapter(adapter);
 
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -77,24 +77,7 @@ public class UserListFragment extends Fragment {
         return view;
     }
 
-    private int setIcon() {
-        int detail_icon = 1;
-        switch (test_list.getImageID()) {
-            case TestList.android_icon:
-                detail_icon = R.drawable.ic_launcher;
-                break;
 
-            case TestList.firefox_icon:
-                detail_icon = R.drawable.firefox_noshadow;
-                break;
-
-            default:
-                detail_icon = R.drawable.ic_launcher;
-                break;
-        }
-
-        return detail_icon;
-    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
