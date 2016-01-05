@@ -16,13 +16,12 @@ import com.example.agvenegas.prueba4.entities.TestList;
 import com.example.agvenegas.prueba4.utils.SessionInfo;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class UserListFragment extends Fragment {
 
     public ListView lista;
     protected SessionInfo session = null;
-
-    public TestList test_list = null;
 
     public UserListFragment() {
         // Required empty public constructor
@@ -45,13 +44,6 @@ public class UserListFragment extends Fragment {
 
         // Construct the data source
         ArrayList<TestList> arrayOfUsers = session.getTestList();
-        // Add item to adapter
-        TestList newUser = new TestList(1, "Luis", "20", "Costa Rica");
-        session.getTestList().add(newUser);
-        TestList newUser2 = new TestList(2, "Ana", "30", "España");
-        session.getTestList().add(newUser2);
-        TestList newUser3 = new TestList(2, "María", "40", "Guatemala");
-        session.getTestList().add(newUser3);
 
         // Create the adapter to convert the array to views
         MyCustomArrayAdapter adapter = new MyCustomArrayAdapter(getActivity(), arrayOfUsers);

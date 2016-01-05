@@ -7,9 +7,6 @@ import com.example.agvenegas.prueba4.utils.Constants;
  */
 public class TestList {
 
-    public final static int android_icon = 1;
-    public final static int firefox_icon = 2;
-
     public TestList() {
         this.setName(null);
         this.setAge(null);
