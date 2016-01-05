@@ -10,6 +10,8 @@ import java.util.List;
  */
 public class SessionInfo {
 
+    public static final int selected_user = -1;
+
     private SessionInfo() {
         super();
         test_list = new ArrayList<TestList>();

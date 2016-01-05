@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.agvenegas.prueba4.adapters.MyCustomArrayAdapter;
 import com.example.agvenegas.prueba4.entities.TestList;
@@ -45,6 +46,12 @@ public class UserListFragment extends Fragment {
         // Construct the data source
         ArrayList<TestList> arrayOfUsers = session.getTestList();
 
+        //test user for be beginning
+        if (arrayOfUsers.isEmpty()) {
+            TestList newUser = new TestList(1, "Prueba", "30", "San José");
+            session.getTestList().add(newUser);
+        }
+
         // Create the adapter to convert the array to views
         MyCustomArrayAdapter adapter = new MyCustomArrayAdapter(getActivity(), arrayOfUsers);
         // Attach the adapter to a ListView
@@ -54,22 +61,18 @@ public class UserListFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-//                int itemPosition = position;
-//
-//                if (itemPosition == 0){
-//                    ((MainActivity)getActivity()).startNewFragment(new Fragment1());
-//                } else if (itemPosition == 1) {
-//                    ((MainActivity)getActivity()).startNewFragment(new NewUserFragment());
-//                } else {
-//                    Toast.makeText(getActivity(), "no posee detalle", Toast.LENGTH_LONG).show();
-//                }
+                int itemPosition = position;
+
+                if (itemPosition == 0){
+                    ((MainActivity)getActivity()).startNewFragment(new DetailUserFragment());
+                } else {
+                    Toast.makeText(getActivity(), "no posee detalle", Toast.LENGTH_LONG).show();
+                }
             }
         });
 
         return view;
     }
-
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

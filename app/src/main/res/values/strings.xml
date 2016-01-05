@@ -5,6 +5,7 @@
     <string name="title_activity_main">Mi Primer Proyecto</string>
     <string name="fragment_title_1">Inicio</string>
     <string name="fragment_title_2">Lista de Usuarios</string>
+    <string name="fragment_title_3">Detalle del Usuario</string>
     <string name="fragment_title_4">Nuevo Usuario</string>
     <string name="name">Nombre: </string>
     <string name="age">Edad: </string>
