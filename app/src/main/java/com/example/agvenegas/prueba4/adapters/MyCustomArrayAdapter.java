@@ -60,11 +60,18 @@ public class MyCustomArrayAdapter extends ArrayAdapter<TestList>{
             case 1:
                 detail_icon = R.drawable.ic_launcher;
                 break;
-
             case 2:
                 detail_icon = R.drawable.firefox_noshadow;
                 break;
-
+            case 3:
+                detail_icon = R.drawable.example_1;
+                break;
+            case 4:
+                detail_icon = R.drawable.example_2;
+                break;
+            case 5:
+                detail_icon = R.drawable.example_3;
+                break;
             default:
                 detail_icon = R.drawable.ic_launcher;
                 break;
