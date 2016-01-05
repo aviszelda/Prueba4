@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.agvenegas.prueba4.entities.TestList;
 import com.example.agvenegas.prueba4.utils.SessionInfo;
@@ -65,14 +66,21 @@ public class NewUserFragment extends Fragment {
                 age = edit_text_age.getText().toString();
                 hometown = edit_text_hometown.getText().toString();
 
-                //Random number for the icon
-                int icon = random.nextInt(5 - 1) + 1;
+                if (name.matches("") | age.matches("") | hometown.matches("")) {
 
-                // Add item to adapter
-                TestList newUser = new TestList(icon, name, age, hometown);
-                session.getTestList().add(newUser);
+                    Toast.makeText(getActivity(), "Por favor complete el formulario", Toast.LENGTH_SHORT).show();
 
-                ((MainActivity) getActivity()).startNewFragment(new UserListFragment());
+                } else {
+
+                    //Random number for the icon
+                    int icon = random.nextInt(5 - 1) + 1;
+
+                    // Add item to adapter
+                    TestList newUser = new TestList(icon, name, age, hometown);
+                    session.getTestList().add(newUser);
+
+                    ((MainActivity) getActivity()).startNewFragment(new UserListFragment());
+                }
             }
         });
 
