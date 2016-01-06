@@ -2,6 +2,7 @@ package com.example.agvenegas.prueba4;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,7 +10,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.agvenegas.prueba4.entities.TestList;
-import com.example.agvenegas.prueba4.utils.Constants;
 import com.example.agvenegas.prueba4.utils.SessionInfo;
 
 public class DetailUserFragment extends Fragment {
@@ -18,7 +18,6 @@ public class DetailUserFragment extends Fragment {
     public TextView detail_name = null;
     public TextView detail_age = null;
     public TextView detail_hometown = null;
-    public TestList test_list;
 
     protected SessionInfo session = null;
 
@@ -38,31 +37,27 @@ public class DetailUserFragment extends Fragment {
         detail_age = (TextView) view.findViewById(R.id.detail_age);
         detail_hometown = (TextView) view.findViewById(R.id.detail_hometown);
 
+        setUserData();
+
         return view;
     }
 
-    private void setPersonData() {
+    private void setUserData() {
 
-        if (!test_list.getName().equalsIgnoreCase(Constants.EMPTY_STRING)) {
-            this.detail_name.setText(getString(R.string.name, this.test_list.getName()));
-            this.detail_name.setVisibility(View.VISIBLE);
+        if (SessionInfo.selected_user == 0) {
+
+            detail_name.setText(getString(R.string.detail_name, session.getTestList().get(0).getName()));
+            detail_name.setVisibility(View.VISIBLE);
+            detail_age.setText(getString(R.string.detail_age, session.getTestList().get(0).getAge()));
+            detail_age.setVisibility(View.VISIBLE);
+            detail_hometown.setText(getString(R.string.detail_hometown, session.getTestList().get(0).getHometown()));
+            detail_hometown.setVisibility(View.VISIBLE);
         }
-
-        if (!test_list.getAge().equalsIgnoreCase(Constants.EMPTY_STRING)) {
-            this.detail_age.setText(getString(R.string.age, this.test_list.getAge()));
-            this.detail_age.setVisibility(View.VISIBLE);
-        }
-
-        if (!test_list.getHometown().equalsIgnoreCase(Constants.EMPTY_STRING)) {
-            this.detail_hometown.setText(getString(R.string.hometown, this.test_list.getHometown()));
-            this.detail_hometown.setVisibility(View.VISIBLE);
-        }
-
     }
 
     public void onResume() {
         super.onResume();
         ((MainActivity)getActivity()).setActionBarTitle(getString(R.string.fragment_title_3));
-        setPersonData();
+        setUserData();
     }
 }

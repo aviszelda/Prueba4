@@ -2,6 +2,7 @@ package com.example.agvenegas.prueba4;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -61,13 +62,9 @@ public class UserListFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                int itemPosition = position;
+                SessionInfo.selected_user = position;
 
-                if (itemPosition == 0){
-                    ((MainActivity)getActivity()).startNewFragment(new DetailUserFragment());
-                } else {
-                    Toast.makeText(getActivity(), "no posee detalle", Toast.LENGTH_LONG).show();
-                }
+                ((MainActivity)getActivity()).startNewFragment(new DetailUserFragment());
             }
         });
 

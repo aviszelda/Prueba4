@@ -7,9 +7,9 @@
     <string name="fragment_title_2">Lista de Usuarios</string>
     <string name="fragment_title_3">Detalle del Usuario</string>
     <string name="fragment_title_4">Nuevo Usuario</string>
-    <string name="name">Nombre: </string>
-    <string name="age">Edad: </string>
-    <string name="hometown">Ciudad: </string>
+    <string name="detail_name">Nombre</string>
+    <string name="detail_age">Edad</string>
+    <string name="detail_hometown">Ciudad</string>
     <string name="text_name">Digite su Nombre: </string>
     <string name="text_age">Digite su Edad: </string>
     <string name="text_hometown">Digite su Ciudad: </string>
