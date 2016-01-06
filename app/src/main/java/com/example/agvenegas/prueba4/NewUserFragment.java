@@ -7,14 +7,19 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.agvenegas.prueba4.entities.TestList;
 import com.example.agvenegas.prueba4.utils.SessionInfo;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class NewUserFragment extends Fragment {
@@ -26,6 +31,9 @@ public class NewUserFragment extends Fragment {
     public EditText edit_text_age;
     public EditText edit_text_hometown;
     public Button fill_button;
+
+    public TextView gender;
+    public Spinner spinner_gender;
 
     public Random random = new Random();
     protected SessionInfo session = null;
@@ -55,6 +63,16 @@ public class NewUserFragment extends Fragment {
         edit_text_name = (EditText) view.findViewById(R.id.edit_text_name);
         edit_text_age = (EditText) view.findViewById(R.id.edit_text_age);
         edit_text_hometown = (EditText) view.findViewById(R.id.edit_text_hometown);
+
+        gender = (TextView) view.findViewById(R.id.gender);
+        spinner_gender = (Spinner) view.findViewById(R.id.spinner_gender);
+
+        List<String> spinnerArray =  new ArrayList<String>();
+        spinnerArray.add("Hombre");
+        spinnerArray.add("Mujer");
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, spinnerArray);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner_gender.setAdapter(adapter);
 
         fill_button = (Button) view.findViewById(R.id.fill_button);
 

@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import com.squareup.picasso.Picasso;
 
 public class Fragment1 extends Fragment {
 
@@ -20,7 +21,6 @@ public class Fragment1 extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // Set title bar
     }
 
     @Override
@@ -30,6 +30,11 @@ public class Fragment1 extends Fragment {
         fragment_1_image = (ImageView) view.findViewById(R.id.fragment_1_image);
         button_to_fragment = (Button) view.findViewById(R.id.button_to_fragment);
         button_to_fragment.setOnClickListener(this.fragment_1);
+
+        Picasso.with(getActivity())
+                .load("http://findicons.com/files/icons/820/simply_google/256/google_android.png")
+                .into(fragment_1_image);
+
         return view;
     }
 

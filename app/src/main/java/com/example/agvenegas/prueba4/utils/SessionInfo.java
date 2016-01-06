@@ -29,5 +29,4 @@ public class SessionInfo {
     private ArrayList<TestList> test_list;
     public ArrayList<TestList> getTestList() { return this.test_list; }
     public void setTestList(ArrayList<TestList> list) {this.test_list = (list != null) ? list : new ArrayList<TestList>(); }
-
 }
