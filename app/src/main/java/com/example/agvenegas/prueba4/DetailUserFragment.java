@@ -12,6 +12,8 @@ import android.widget.TextView;
 import com.example.agvenegas.prueba4.entities.TestList;
 import com.example.agvenegas.prueba4.utils.SessionInfo;
 
+import static com.example.agvenegas.prueba4.adapters.MyCustomArrayAdapter.setIcon;
+
 public class DetailUserFragment extends Fragment {
 
     public ImageView icon_detail_layout = null;
@@ -37,27 +39,22 @@ public class DetailUserFragment extends Fragment {
         detail_age = (TextView) view.findViewById(R.id.detail_age);
         detail_hometown = (TextView) view.findViewById(R.id.detail_hometown);
 
-        setUserData();
-
         return view;
     }
 
     private void setUserData() {
-
-        if (SessionInfo.selected_user == 0) {
-
-            detail_name.setText(getString(R.string.detail_name, session.getTestList().get(0).getName()));
-            detail_name.setVisibility(View.VISIBLE);
-            detail_age.setText(getString(R.string.detail_age, session.getTestList().get(0).getAge()));
-            detail_age.setVisibility(View.VISIBLE);
-            detail_hometown.setText(getString(R.string.detail_hometown, session.getTestList().get(0).getHometown()));
-            detail_hometown.setVisibility(View.VISIBLE);
-        }
+        icon_detail_layout.setImageResource(setIcon(session.getTestList().get(SessionInfo.selected_user).getImageID()));
+        detail_name.setText("Nombre: " + session.getTestList().get(SessionInfo.selected_user).getName());
+        detail_name.setVisibility(View.VISIBLE);
+        detail_age.setText("Edad: " + session.getTestList().get(SessionInfo.selected_user).getAge()+" años");
+        detail_age.setVisibility(View.VISIBLE);
+        detail_hometown.setText("Ciudad: " + session.getTestList().get(SessionInfo.selected_user).getHometown());
+        detail_hometown.setVisibility(View.VISIBLE);
     }
 
     public void onResume() {
         super.onResume();
-        ((MainActivity)getActivity()).setActionBarTitle(getString(R.string.fragment_title_3));
+        ((MainActivity) getActivity()).setActionBarTitle(getString(R.string.fragment_title_3));
         setUserData();
     }
 }

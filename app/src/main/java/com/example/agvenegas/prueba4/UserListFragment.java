@@ -1,5 +1,7 @@
 package com.example.agvenegas.prueba4;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -17,6 +19,7 @@ import com.example.agvenegas.prueba4.adapters.MyCustomArrayAdapter;
 import com.example.agvenegas.prueba4.entities.TestList;
 import com.example.agvenegas.prueba4.utils.SessionInfo;
 
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Random;
 

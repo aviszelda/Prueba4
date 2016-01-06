@@ -1,6 +1,8 @@
 package com.example.agvenegas.prueba4;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -17,6 +19,7 @@ import android.widget.Toast;
 import com.example.agvenegas.prueba4.adapters.MyCustomArrayAdapter;
 import com.example.agvenegas.prueba4.entities.TestList;
 
+import java.net.URL;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {

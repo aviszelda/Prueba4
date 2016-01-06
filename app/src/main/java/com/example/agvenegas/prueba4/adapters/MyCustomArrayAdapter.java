@@ -54,7 +54,7 @@ public class MyCustomArrayAdapter extends ArrayAdapter<TestList>{
         return convertView;
     }
 
-    public int setIcon(int detail_icon) {
+    public static int setIcon(int detail_icon) {
 
         switch (detail_icon) {
             case 1:
