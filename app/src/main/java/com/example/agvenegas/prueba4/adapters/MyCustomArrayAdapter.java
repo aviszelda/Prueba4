@@ -36,6 +36,7 @@ public class MyCustomArrayAdapter extends ArrayAdapter<TestList>{
             TextView tvName = (TextView) convertView.findViewById(R.id.tvName);
             TextView tvAge = (TextView) convertView.findViewById(R.id.tvAge);
             TextView tvHome = (TextView) convertView.findViewById(R.id.tvHome);
+            TextView tvGender = (TextView) convertView.findViewById(R.id.tvGender);
             // Populate the data into the template view using the data object
             if (iconID != null) {
                 iconID.setImageResource(setIcon(testList.getImageID()));
@@ -48,6 +49,9 @@ public class MyCustomArrayAdapter extends ArrayAdapter<TestList>{
             }
             if (tvHome != null) {
                 tvHome.setText("País de Origen: "+testList.getHometown());
+            }
+            if (tvGender != null) {
+                tvGender.setText("Género: "+testList.getGender());
             }
         }
         // Return the completed view to render on screen

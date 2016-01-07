@@ -52,7 +52,7 @@ public class UserListFragment extends Fragment {
 
         //test user for be beginning
         if (arrayOfUsers.isEmpty()) {
-            TestList newUser = new TestList(1, "Prueba", "30", "San José");
+            TestList newUser = new TestList(1, "Prueba", "30", "San José", "Hombre");
             session.getTestList().add(newUser);
         }
 

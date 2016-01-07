@@ -20,6 +20,7 @@ public class DetailUserFragment extends Fragment {
     public TextView detail_name = null;
     public TextView detail_age = null;
     public TextView detail_hometown = null;
+    public TextView detail_gender = null;
 
     protected SessionInfo session = null;
 
@@ -38,6 +39,7 @@ public class DetailUserFragment extends Fragment {
         detail_name = (TextView) view.findViewById(R.id.detail_name);
         detail_age = (TextView) view.findViewById(R.id.detail_age);
         detail_hometown = (TextView) view.findViewById(R.id.detail_hometown);
+        detail_gender = (TextView) view.findViewById(R.id.detail_gender);
 
         return view;
     }
@@ -50,6 +52,8 @@ public class DetailUserFragment extends Fragment {
         detail_age.setVisibility(View.VISIBLE);
         detail_hometown.setText("Ciudad: " + session.getTestList().get(SessionInfo.selected_user).getHometown());
         detail_hometown.setVisibility(View.VISIBLE);
+        detail_gender.setText("Género: " + session.getTestList().get(SessionInfo.selected_user).getGender());
+        detail_gender.setVisibility(View.VISIBLE);
     }
 
     public void onResume() {

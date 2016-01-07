@@ -38,6 +38,12 @@
         android:layout_height="wrap_content"
         android:text="@string/detail_hometown" />
 
+        <TextView
+            android:id="@+id/detail_gender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/detail_gender" />
+
     </LinearLayout>
 
 </LinearLayout>

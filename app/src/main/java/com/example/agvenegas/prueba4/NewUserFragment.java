@@ -32,6 +32,7 @@ public class NewUserFragment extends Fragment {
 
     public TextView gender;
     public Spinner spinner_gender;
+    public String gender_selected;
 
     public Random random = new Random();
     protected SessionInfo session = null;
@@ -66,6 +67,7 @@ public class NewUserFragment extends Fragment {
         spinner_gender = (Spinner) view.findViewById(R.id.spinner_gender);
 
         List<String> spinnerArray =  new ArrayList<String>();
+        spinnerArray.add("Seleccione un Género");
         spinnerArray.add("Hombre");
         spinnerArray.add("Mujer");
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, spinnerArray);
@@ -82,7 +84,9 @@ public class NewUserFragment extends Fragment {
                 age = edit_text_age.getText().toString();
                 hometown = edit_text_hometown.getText().toString();
 
-                if (name.matches("") | age.matches("") | hometown.matches("")) {
+                gender_selected = spinner_gender.getSelectedItem().toString();
+
+                if (name.matches("") | age.matches("") | hometown.matches("") | gender_selected.matches("Seleccione un Género")) {
 
                     Toast.makeText(getActivity(), "Por favor complete el formulario", Toast.LENGTH_SHORT).show();
 
@@ -92,7 +96,7 @@ public class NewUserFragment extends Fragment {
                     int icon = random.nextInt(5 - 1) + 1;
 
                     // Add item to adapter
-                    TestList newUser = new TestList(icon, name, age, hometown);
+                    TestList newUser = new TestList(icon, name, age, hometown, gender_selected);
                     session.getTestList().add(newUser);
 
                     ((MainActivity) getActivity()).startNewFragment(new UserListFragment());

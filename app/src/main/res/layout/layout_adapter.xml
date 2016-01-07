@@ -47,6 +47,15 @@
             android:gravity="bottom"
             android:height="20sp" />
 
+        <TextView android:textColor="@color/colorPrimaryDark"
+            android:id="@+id/tvGender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/detail_gender"
+            android:layout_marginLeft="10dp"
+            android:gravity="bottom"
+            android:height="20sp" />
+
     </LinearLayout>
 
 </LinearLayout>
