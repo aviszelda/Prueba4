@@ -6,10 +6,17 @@
     android:orientation="vertical"
     tools:context="com.example.agvenegas.prueba4.Fragment1">
 
-    <FrameLayout
+    <LinearLayout
         android:id="@+id/frame_1_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/fragment_1_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"/>
 
         <Button
             android:layout_width="wrap_content"
@@ -18,6 +25,6 @@
             android:id="@+id/button_to_fragment"
             android:layout_gravity="center" />
 
-    </FrameLayout>
+    </LinearLayout>
 
 </LinearLayout>

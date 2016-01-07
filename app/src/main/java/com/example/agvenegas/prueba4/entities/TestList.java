@@ -11,14 +11,16 @@ public class TestList {
         this.setName(null);
         this.setAge(null);
         this.setHometown(null);
+        this.setGender(null);
     }
 
-    public TestList (int imageID, String name, String age, String hometown) {
+    public TestList (int imageID, String name, String age, String hometown, String gender) {
         super();
         this.setImageID(imageID);
         this.setName(name);
         this.setAge(age);
         this.setHometown(hometown);
+        this.setGender(gender);
     }
 
     private int imageID;
@@ -36,4 +38,8 @@ public class TestList {
     private String hometown;
     public String getHometown() { return hometown; }
     public void setHometown(String value) { this.hometown = (value != null) ? value : Constants.EMPTY_STRING; }
+
+    private String gender;
+    public String getGender() { return gender; }
+    public void setGender(String value) { this.gender = (value != null) ? value : Constants.EMPTY_STRING; }
 }

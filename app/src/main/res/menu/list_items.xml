@@ -4,7 +4,7 @@
 
     <item
         android:id="@+id/menu_opt_location"
-        android:icon="@drawable/ic_share"
+        android:icon="@drawable/ic_plus"
         android:orderInCategory="1"
         android:title="@string/fill_button"
         app:showAsAction="always" />

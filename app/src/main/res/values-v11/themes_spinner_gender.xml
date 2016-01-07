@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Generated with http://android-holo-colors.com -->
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <style name="spinner_gender" parent="@style/_spinner_gender"/>
+
+  <style name="_spinner_gender" parent="Theme.AppCompat.Light">
+
+    <item name="android:dropDownSpinnerStyle">@style/Spinnerspinner_gender</item>
+
+  </style>
+
+</resources>

@@ -1,7 +1,10 @@
 package com.example.agvenegas.prueba4;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -10,11 +13,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.agvenegas.prueba4.adapters.MyCustomArrayAdapter;
 import com.example.agvenegas.prueba4.entities.TestList;
 import com.example.agvenegas.prueba4.utils.SessionInfo;
 
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -45,6 +50,12 @@ public class UserListFragment extends Fragment {
         // Construct the data source
         ArrayList<TestList> arrayOfUsers = session.getTestList();
 
+        //test user for be beginning
+        if (arrayOfUsers.isEmpty()) {
+            TestList newUser = new TestList(1, "Prueba", "30", "San José", "Hombre");
+            session.getTestList().add(newUser);
+        }
+
         // Create the adapter to convert the array to views
         MyCustomArrayAdapter adapter = new MyCustomArrayAdapter(getActivity(), arrayOfUsers);
         // Attach the adapter to a ListView
@@ -54,22 +65,14 @@ public class UserListFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-//                int itemPosition = position;
-//
-//                if (itemPosition == 0){
-//                    ((MainActivity)getActivity()).startNewFragment(new Fragment1());
-//                } else if (itemPosition == 1) {
-//                    ((MainActivity)getActivity()).startNewFragment(new NewUserFragment());
-//                } else {
-//                    Toast.makeText(getActivity(), "no posee detalle", Toast.LENGTH_LONG).show();
-//                }
+                SessionInfo.selected_user = position;
+
+                ((MainActivity)getActivity()).startNewFragment(new DetailUserFragment());
             }
         });
 
         return view;
     }
-
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
