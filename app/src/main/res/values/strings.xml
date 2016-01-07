@@ -13,6 +13,7 @@
     <string name="male">Hombre</string>
     <string name="female">Mujer</string>
     <string name="gender">Género: </string>
+    <string name="gender_select">Seleccione un Género: </string>
     <string name="text_name">Digite su Nombre: </string>
     <string name="text_age">Digite su Edad: </string>
     <string name="text_hometown">Digite su Ciudad: </string>

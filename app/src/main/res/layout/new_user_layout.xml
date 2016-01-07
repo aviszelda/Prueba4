@@ -63,10 +63,13 @@
 
         <Spinner
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
+            android:spinnerMode="dropdown"
             android:id="@+id/spinner_gender"
             android:dropDownSelector="@drawable/color_selector"
-            android:background="@android:color/white" />
+            android:background="@android:color/white"
+            android:theme="@style/Spinnerspinner_gender"
+            android:prompt="@string/gender_select"/>
 
         <Button
             android:id="@+id/fill_button"
