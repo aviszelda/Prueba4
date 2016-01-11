@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -66,13 +67,24 @@ public class NewUserFragment extends Fragment {
         gender = (TextView) view.findViewById(R.id.gender);
         spinner_gender = (Spinner) view.findViewById(R.id.spinner_gender);
 
-        List<String> spinnerArray =  new ArrayList<String>();
-        spinnerArray.add("Seleccione un Género");
+        final List<String> spinnerArray =  new ArrayList<String>();
         spinnerArray.add("Hombre");
         spinnerArray.add("Mujer");
+        spinnerArray.add("Seleccione un Género");
+
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, spinnerArray);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner_gender.setAdapter(adapter);
+
+        spinner_gender.setSelection(adapter.getCount() - 1); //display hint
+
+        spinner_gender.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                spinnerArray.remove("Seleccione un Género");
+                return false;
+            }
+        });
 
         fill_button = (Button) view.findViewById(R.id.fill_button);
 
